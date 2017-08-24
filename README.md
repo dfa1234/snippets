@@ -1,1 +1,3 @@
-My minimal webpack config for tests# snippets
+#### snippets
+
+Minimal webpack 3 config for Sass snippets

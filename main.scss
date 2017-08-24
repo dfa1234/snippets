@@ -1,0 +1,21 @@
+body{
+    background: #09328b;
+    color:white;
+    font-family: sans-serif;
+
+
+  .myForm{
+    display: flex;
+    flex-direction: column-reverse;
+
+    & label{
+      color: gray;
+    }
+
+  }
+
+
+
+}
+
+

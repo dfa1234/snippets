@@ -1,6 +1,5 @@
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
 const extractSass = new ExtractTextPlugin({
     filename: "./output/style.css",
     disable: process.env.NODE_ENV === "development"
@@ -11,6 +10,9 @@ module.exports = {
     output: {
         filename: "./output/bundle.js"
     },
+    plugins: [
+        extractSass,
+    ],
     module: {
         rules: [{
             test: /\.scss$/,
@@ -24,9 +26,5 @@ module.exports = {
                 fallback: "style-loader"
             })
         }]
-    },
-    plugins: [
-        extractSass,
-    ]
+    }
 };
-

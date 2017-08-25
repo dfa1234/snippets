@@ -1,21 +1,13 @@
 body{
-    background: #09328b;
-    color:white;
+
+  background: darkblue;
+  text-align: center;
+
+  .hello{
     font-family: sans-serif;
-
-
-  .myForm{
-    display: flex;
-    flex-direction: column-reverse;
-
-    & label{
-      color: gray;
-    }
-
+    color: white;
+    line-height: 200px;
+    font-size: 2em;
   }
 
-
-
 }
-
-

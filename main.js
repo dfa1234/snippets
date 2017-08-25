@@ -1,6 +1,6 @@
-import './main.scss';
+'use strict';
 
-console.warn("Start Bundle", new Date())
+console.warn(`Start Bundle [${new Date()}]`);
 
 function testScript(){
 

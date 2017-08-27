@@ -6,15 +6,20 @@ const extractSass = new ExtractTextPlugin({
 });
 
 module.exports = {
-    entry: ['./main.js', './main.scss'],
+    entry: ['./main.ts','./main.scss'],
     output: {
         filename: "./output/bundle.js"
     },
     plugins: [
         extractSass,
     ],
+    devtool: 'inline-source-map',
+    resolve: {
+       extensions: ['.ts', '.js']
+    },
     module: {
-        rules: [{
+        rules: [
+          {
             test: /\.scss$/,
             use: extractSass.extract({
                 use: [{
@@ -25,6 +30,11 @@ module.exports = {
                 // use style-loader in development
                 fallback: "style-loader"
             })
-        }]
+        },
+        {
+          test: /\.ts$/,
+          use: 'ts-loader'
+        }
+      ]
     }
 };

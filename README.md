@@ -1,3 +1,3 @@
 #### snippets
 
-Minimal webpack 3 config for Sass snippets
+Minimal webpack 3 config for Typescript + Sass snippets

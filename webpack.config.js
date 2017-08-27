@@ -6,7 +6,7 @@ const extractSass = new ExtractTextPlugin({
 });
 
 module.exports = {
-    entry: ['./main.ts','./main.scss'],
+    entry: ['./main.ts'],
     output: {
         filename: "./output/bundle.js"
     },

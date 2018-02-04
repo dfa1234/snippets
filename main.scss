@@ -1,12 +1,15 @@
+$highlightColor : #94c02f;
+$normalColor: #d0d0d0;
+
 body{
 
-  background: darkblue;
-  text-align: center;
+  background: #242424;
+  color: #d0d0d0;
 
   .hello{
     font-family: sans-serif;
-    color: white;
-    line-height: 200px;
+    text-align: center;
+    line-height: 300px;
     font-size: 2em;
   }
 

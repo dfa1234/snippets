@@ -1,26 +1,40 @@
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const extractSass = new ExtractTextPlugin({
+const sassPlugin = new ExtractTextPlugin({
     filename: "./output/style.css",
     disable: process.env.NODE_ENV === "development"
 });
 
 const webpack = require("webpack");
-const jquery = new webpack.ProvidePlugin({
+const jqueryPlugin = new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery'
 });
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const htmlPlugin = new HtmlWebpackPlugin({
+    title: 'Snippets',
+    template: 'body.html',
+    inject: 'body'
+});
+
+
 module.exports = {
     entry: ['./main.ts'],
     output: {
-        filename: "./output/bundle.js"
+        path: __dirname + '/output',
+        filename: "bundle.js"
     },
     plugins: [
-        extractSass,
-        jquery
+        sassPlugin,
+        jqueryPlugin,
+        htmlPlugin
     ],
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: [ './' ],
+        watchContentBase: true
+    },
     resolve: {
        extensions: ['.ts', '.js']
     },
@@ -28,7 +42,7 @@ module.exports = {
         rules: [
           {
             test: /\.scss$/,
-            use: extractSass.extract({
+            use: sassPlugin.extract({
                 use: [{
                     loader: "css-loader"
                 }, {

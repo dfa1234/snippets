@@ -5,6 +5,12 @@ const extractSass = new ExtractTextPlugin({
     disable: process.env.NODE_ENV === "development"
 });
 
+const webpack = require("webpack");
+const jquery = new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery'
+});
+
 module.exports = {
     entry: ['./main.ts'],
     output: {
@@ -12,6 +18,7 @@ module.exports = {
     },
     plugins: [
         extractSass,
+        jquery
     ],
     devtool: 'inline-source-map',
     resolve: {

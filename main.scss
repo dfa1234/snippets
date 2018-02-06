@@ -3,8 +3,10 @@ $normalColor: #d0d0d0;
 
 body{
 
+  font-family: sans-serif;
   background: #242424;
   color: #d0d0d0;
+  padding: 0 30px;
 
   .hello{
     font-family: sans-serif;
@@ -13,4 +15,36 @@ body{
     font-size: 2em;
   }
 
+  .mytab{
+    display: inline-block;
+    border:1px solid white;
+    padding:5px;
+  }
+
+  .bgd{
+    background: rgba(233, 68, 68, 0.33);
+  }
+
+  #navbar{
+    display: flex;
+    height: 75px;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 100%;
+    #menu{
+      margin: 0 0 0 auto;
+    }
+  }
+
+  #container{
+
+
+    h1{
+      margin: 0;
+      font-size: 1.5em;
+      text-align: center;
+      border-bottom: 1px dashed gray;
+    }
+
+  }
 }

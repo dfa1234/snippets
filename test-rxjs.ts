@@ -67,4 +67,19 @@ export const bufferAndZipPack = () => {
     )
 };
 
+export const concatMap = () =>{
+    const source = Rx.Observable.of(1,2,3,4,5);
+    const source2 = Rx.Observable.of(`A`,`B`,`C`,`D`,`E`);
+
+    const example = source.do(console.log).concatMap(item => source2);
+
+    const subscribe = example.subscribe(
+        val => console.log(val),
+        e => console.log(e),
+        () => console.log('complete')
+    );
+};
+
+concatMap();
+
 

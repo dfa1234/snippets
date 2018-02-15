@@ -1,85 +1,86 @@
 import * as Rx from 'rxjs';
+import {Observer} from "rxjs/Observer";
+import {Observable} from "rxjs/Observable";
 
+const source = Rx.Observable.of(1,2,3,4,5);
+const source2 = Rx.Observable.of(`A`,`B`,`C`,`D`,`E`);
 
-export const zip = () =>{
-    const source = Rx.Observable.of(1,2,3,4,5);
-    const source2 = Rx.Observable.of(`A`,`B`,`C`,`D`,`E`);
+const log = (text:string,error:boolean = false) =>{
+    const terminal = document.getElementById(`terminal`);
 
-    const example = Rx.Observable.zip(source,source2);
+    if(!error){
+        console.log(text);
+        if(terminal){
+            terminal.innerHTML = terminal.innerHTML+`${text}<br />`
+        }
+    }else{
+        console.error(text);
+        if(terminal){
+            terminal.innerHTML = terminal.innerHTML+`<span style="color:red">${text}</span><br />`
+        }
+    }
+};
 
-    const subscribe = example.subscribe(
-        val => console.log(val),
-        e => console.log(e),
-        () => console.log('complete')
-    );
+const observer:Observer<any> = {
+    //closed: false,
+    next:(value:any) => log(value),
+    error: (err:any) => log(err,true),
+    complete: () => log(`complete<hr>`)
 };
 
 
+log(`
+//**********************************************************
+//
+//          MERGES
+//
+//**********************************************************
+`);
 
-export const merge = ()=>{
-    const source = Rx.Observable.of(1,2,3,4,5);
-    const source2 = Rx.Observable.of(`A`,`B`,`C`,`D`,`E`);
+const zip = () => Rx.Observable.zip(source,source2).subscribe(observer);
 
-    const example = Rx.Observable.merge(source,source2);
+const merge = ()=> Rx.Observable.merge(source,source2).subscribe(observer);
 
-    const subscribe = example.subscribe(
-        val => console.log(val),
-        e => console.log(e),
-        () => console.log('complete')
-    );
-};
+const concat = ()=> Rx.Observable.concat(source,source2).subscribe(observer);
 
-export const concat = ()=>{
-    const source = Rx.Observable.of(1,2,3,4,5);
-    const source2 = Rx.Observable.of(`A`,`B`,`C`,`D`,`E`);
+const combineLatest = () => Rx.Observable.combineLatest(source,source2).subscribe(observer);
 
-    const example = Rx.Observable.concat(source,source2);
+const combineLatestTransform = () => Rx.Observable.combineLatest(source,source2,(a,b)=>a+'+'+b).subscribe(observer);
 
-    const subscribe = example.subscribe(
-        val => console.log(val),
-        e => console.log(e),
-        () => console.log('complete')
-    );
-};
+const forkJoin = () => Observable.forkJoin(source,source2).subscribe(observer);
 
+const forkJoinTransform = () => Observable.forkJoin(source,source2,(a,b)=>a+'+'+b).subscribe(observer);
 
-export const combineLatest = () =>{
-    const source = Rx.Observable.of(1,2,3,4,5);
-    const source2 = Rx.Observable.of(`A`,`B`,`C`,`D`,`E`);
-
-    const example = Rx.Observable.combineLatest(source,source2);
-
-    const subscribe = example.subscribe(
-        val => console.log(val),
-        e => console.log(e),
-        () => console.log('complete')
-    );
-};
+log(`zip`);
+zip();
+log(`merge`);
+merge();
+log(`concat`);
+concat();
+log(`combineLatest`);
+combineLatest();
+log(`combineLatest + Transform`);
+combineLatestTransform();
+log(`forkJoin`);
+forkJoin();
+log(`forkJoin + Transform`);
+forkJoinTransform();
 
 
-export const bufferAndZipPack = () => {
-    const source = Rx.Observable.of(1,2,3,4,5);
-    const example:Rx.Observable<any> = source.take(3).bufferCount(2).zip();
-    const subscribe = example.subscribe(
-        val => console.log(val),
-        e => console.log(e),
-        () => console.log('complete')
-    )
-};
+log(`
+//**********************************************************
+//
+//          OPERATORS
+//
+//**********************************************************
+`);
 
-export const concatMap = () =>{
-    const source = Rx.Observable.of(1,2,3,4,5);
-    const source2 = Rx.Observable.of(`A`,`B`,`C`,`D`,`E`);
+const bufferAndZipPack = () => source.take(3).bufferCount(2).zip().subscribe(observer);
 
-    const example = source.do(console.log).concatMap(item => source2);
+const concatMap = () => source.concatMap(item => source2).subscribe(observer);
 
-    const subscribe = example.subscribe(
-        val => console.log(val),
-        e => console.log(e),
-        () => console.log('complete')
-    );
-};
 
+log(`bufferAndZipPack`);
+bufferAndZipPack();
+log(`concatMap`);
 concatMap();
-
-

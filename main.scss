@@ -6,11 +6,21 @@ body{
   background: #242424;
   color: #d0d0d0;
 
-  .hello{
+  #title{
     font-family: sans-serif;
     text-align: center;
-    line-height: 300px;
+    line-height: 100px;
     font-size: 2em;
+  }
+
+  #terminal{
+    font-family: monospace;
+    text-align: left;
+    font-size: 1.1em;
+    width: 70%;
+    margin: auto;
+    padding: 10px 50px;
+    border: 1px dashed gray;
   }
 
 }

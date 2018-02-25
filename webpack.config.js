@@ -20,7 +20,7 @@ const htmlPlugin = new HtmlWebpackPlugin({
 
 
 module.exports = {
-    entry: ['./main.ts'],
+    entry: ['./main.tsx'],
     output: {
         path: __dirname + '/output',
         filename: "bundle.js"
@@ -36,7 +36,7 @@ module.exports = {
         watchContentBase: true
     },
     resolve: {
-       extensions: ['.ts', '.js']
+       extensions: ['.ts','.tsx', '.js']
     },
     module: {
         rules: [
@@ -53,7 +53,7 @@ module.exports = {
             })
         },
         {
-          test: /\.ts$/,
+          test: /\.tsx?$/,
           use: 'ts-loader'
         }
       ]

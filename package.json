@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "serve": "webpack-dev-server --progress --colors"
+    "serve": "webpack-dev-server --progress --colors",
+    "markdown": "node_modules/.bin/marked -i source.md -o output.html"
   },
   "author": "dfa",
   "license": "ISC",
@@ -12,6 +13,7 @@
     "css-loader": "^0.28.5",
     "extract-text-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^2.30.1",
+    "marked": "^0.3.17",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
@@ -19,8 +21,5 @@
     "typescript": "^2.6.*",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
-  },
-  "dependencies": {
-    "rxjs": "^5.5.6"
   }
 }

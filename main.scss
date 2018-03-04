@@ -2,25 +2,40 @@ $highlightColor : #94c02f;
 $normalColor: #d0d0d0;
 
 body{
-
-  background: #242424;
-  color: #d0d0d0;
-
-  #title{
-    font-family: sans-serif;
-    text-align: center;
-    line-height: 100px;
-    font-size: 2em;
-  }
-
-  #terminal{
-    font-family: monospace;
-    text-align: left;
-    font-size: 1.1em;
-    width: 70%;
-    margin: auto;
-    padding: 10px 50px;
-    border: 1px dashed gray;
-  }
-
+  margin: 10%;
+  font-family: Ubuntu, sans-serif;
+  //background: #e7e7e7;
+  max-width: 80%;
 }
+
+
+h1{
+  text-align: center;
+  color: #c89d64;
+}
+h2{
+  text-align: center;
+  color: #c89d64;
+}
+
+h3{
+  margin-top: 50px;
+  color: #c89d64;
+  margin-bottom: 5px;
+}
+
+h4{
+  font-style: italic;
+  color:gray;
+  margin: 0;
+}
+
+a{
+  color: #3c0080;
+}
+
+#education ~ h4{
+    color:black;
+  font-style: normal;
+}
+

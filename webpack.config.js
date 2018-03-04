@@ -13,8 +13,8 @@ const jqueryPlugin = new webpack.ProvidePlugin({
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const htmlPlugin = new HtmlWebpackPlugin({
-    title: 'Snippets',
-    template: 'body.html',
+    title: 'Markdown Stylizer',
+    template: 'output.html',
     inject: 'body'
 });
 

@@ -1,13 +1,26 @@
 $highlightColor : #94c02f;
 $normalColor: #d0d0d0;
 
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
 body{
+  font-family: sans-serif;
   margin: 10%;
-  font-family: Ubuntu, sans-serif;
   //background: #e7e7e7;
   max-width: 80%;
 }
 
+h1,h2,h3{
+  font-family: Montserrat, sans-serif;
+}
 
 h1{
   text-align: center;
@@ -25,13 +38,18 @@ h3{
 }
 
 h4{
-  font-style: italic;
-  color:gray;
+  //font-style: italic;
+  color:rgb(187, 187, 187);
   margin: 0;
 }
 
 a{
-  color: #3c0080;
+  color: #aa8055;
+  font-family: monospace;
+  font-size: 1.2em;
+  & :visited{
+    color: #aa8055;
+  }
 }
 
 #education ~ h4{
@@ -39,3 +57,6 @@ a{
   font-style: normal;
 }
 
+pre{
+  margin: 5px 5px 20px 5px;
+}

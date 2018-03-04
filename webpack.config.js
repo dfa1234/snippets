@@ -40,22 +40,29 @@ module.exports = {
     },
     module: {
         rules: [
-          {
-            test: /\.scss$/,
-            use: sassPlugin.extract({
-                use: [{
-                    loader: "css-loader"
-                }, {
-                    loader: "sass-loader"
-                }],
-                // use style-loader in development
-                fallback: "style-loader"
-            })
-        },
-        {
-          test: /\.ts$/,
-          use: 'ts-loader'
-        }
-      ]
+            {
+                test: /\.scss$/,
+                use: sassPlugin.extract({
+                    use: [{
+                        loader: "css-loader"
+                    }, {
+                        loader: "sass-loader"
+                    }],
+                    // use style-loader in development
+                    fallback: "style-loader"
+                })
+            },
+            {
+                test: /\.ts$/,
+                use: 'ts-loader'
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]'
+                }
+            }
+        ]
     }
 };

@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "serve": "webpack-dev-server --progress --colors",
+    "serve": "node_modules/.bin/webpack-dev-server --progress --colors",
     "markdown": "node_modules/.bin/marked -i source.md -o output.html"
   },
   "author": "dfa",

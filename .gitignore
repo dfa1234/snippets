@@ -7,3 +7,5 @@ source.md
 source1.md
 output.html
 *.pdf
+
+*.log

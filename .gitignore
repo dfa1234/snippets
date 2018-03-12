@@ -3,3 +3,9 @@ node_modules/
 .DS_Store
 npm-debug.log
 *.lock
+
+
+*.pdf
+source.md
+source1.md
+*.log

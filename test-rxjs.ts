@@ -1,25 +1,10 @@
 import * as Rx from 'rxjs';
 import {Observer} from "rxjs/Observer";
 import {Observable} from "rxjs/Observable";
+import {log} from "./module";
 
 const source = Rx.Observable.of(1,2,3,4,5);
 const source2 = Rx.Observable.of(`A`,`B`,`C`,`D`,`E`);
-
-const log = (text:string,error:boolean = false) =>{
-    const terminal = document.getElementById(`terminal`);
-
-    if(!error){
-        console.log(text);
-        if(terminal){
-            terminal.innerHTML = terminal.innerHTML+`${text}<br />`
-        }
-    }else{
-        console.error(text);
-        if(terminal){
-            terminal.innerHTML = terminal.innerHTML+`<span style="color:red">${text}</span><br />`
-        }
-    }
-};
 
 const observer:Observer<any> = {
     //closed: false,

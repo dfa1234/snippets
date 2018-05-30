@@ -10,31 +10,119 @@ $normalColor: #d0d0d0;
 
 
 body{
-
   background: #2b2b2b;
   color: #bababa;
+}
 
-  #title{
-    font-family: Chicago,sans-serif;
-    text-align: center;
-    line-height: 100px;
-    font-size: 2em;
+#title{
+  font-family: Chicago,sans-serif;
+  text-align: center;
+  line-height: 100px;
+  font-size: 2em;
+}
+
+.logo{
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+}
+
+
+
+//---------------------------------------------
+
+$warning:#ae9665;
+$warning-bgd:#372f0d;
+$error: #f80000;
+$error-bgd:#340007;
+
+.grid1{
+  display: grid;
+
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: 100px 100px 100px;
+  //grid-gap: 2px;
+  grid-column-gap: 2px;
+  grid-row-gap: 5px;
+
+  //grid-auto-flow: column;
+
+  & > div{
+    border: 1px solid $warning;
+    background: $warning-bgd;
+    overflow: hidden;
   }
 
-  #terminal{
-    font-family: monospace;
-    text-align: left;
-    font-size: 1.1em;
-    width: 70%;
-    margin: auto;
-    padding: 10px 50px;
-    border: 1px dashed gray;
+
+  & :nth-child(4){
+    background: #112b11;
   }
 
-  .logo{
-    vertical-align: middle;
-    width: 100px;
-    height: 100px;
+  & :nth-child(5){
+    background: #2b002b;
+    grid-row-start: 2;
+    grid-row-end: span 2;
+    grid-column-start: 2;
+    grid-column-end: span 2;
+
   }
 
 }
+
+
+.grid2{
+  display: grid;
+  grid-template-areas: "header  header"
+                       "body  aside";
+
+
+  @media(max-width: 500px){
+    grid-template-areas:
+            "header"
+            "body"
+            "aside";
+    grid-template-columns: 1fr;
+  }
+
+  grid-template-rows: repeat(2,minmax(150px,auto));
+  grid-template-columns: 8fr 1fr;
+
+  justify-items: center;
+  align-items: stretch;
+
+
+  & :nth-child(1){
+    grid-area: header;
+    background: #2b002b;
+    &:before{
+      content: 'HEADER ';
+    }
+  }
+
+  & :nth-child(2){
+    grid-area: body;
+    background: #00172b;
+    justify-self: stretch;
+    &:before{
+      display: block;
+      margin: 50px;
+      content: 'BODY ';
+    }
+  }
+
+  & :nth-child(3){
+    grid-area: aside;
+    background: #2b2802;
+    &:before{
+      content: 'ASIDE ';
+    }
+  }
+
+  & > div{
+    border: 1px solid $error;
+    background: $error-bgd;
+    //width: 400px;
+  }
+}
+
+

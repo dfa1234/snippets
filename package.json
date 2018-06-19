@@ -2,25 +2,34 @@
   "name": "snippets",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.html",
   "scripts": {
-    "serve": "node_modules/.bin/webpack-dev-server --progress --colors",
+    "serve": "./node_modules/.bin/webpack-dev-server --mode=development",
+    "dev": "./node_modules/.bin/webpack --mode=development",
+    "build": "./node_modules/.bin/webpack --mode=production",
+    "test-prod":"./node_modules/.bin/http-server dist"
     "markdown": "node_modules/.bin/marked -i source.md -o output.html"
   },
   "author": "dfa",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^0.28.5",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
-    "html-webpack-plugin": "^2.30.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.11.1",
     "marked": "^0.3.17",
     "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.18.2",
-    "ts-loader": "^2.3.4",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "ts-loader": "^4.3.0",
     "typescript": "^2.6.*",
-    "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1"
+    "webpack": "^4.10.2",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "rxjs": "^6.2.0"
   }
 }

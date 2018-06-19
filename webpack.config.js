@@ -1,36 +1,31 @@
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const sassPlugin = new ExtractTextPlugin({
-    filename: "./output/style.css",
-    disable: process.env.NODE_ENV === "development"
+    filename: "./output/style.css"
 });
 
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const htmlPlugin = new HtmlWebpackPlugin({
+    template: 'index.html'
+});
+
+/*
+//for jquery
 const webpack = require("webpack");
 const jqueryPlugin = new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery'
+    filename: "./output/style.css"
 });
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const htmlPlugin = new HtmlWebpackPlugin({
-    title: 'Markdown Stylizer',
-    template: 'output.html',
-    inject: 'body'
-});
-
+//then add jqueryPlugin to plugins array
+*/
 
 module.exports = {
-    entry: ['./main.ts'],
-    output: {
-        path: __dirname + '/output',
-        filename: "bundle.js"
-    },
     plugins: [
-        sassPlugin,
-        jqueryPlugin,
-        htmlPlugin
+        htmlPlugin,
+        sassPlugin
     ],
-    devtool: 'inline-source-map',
     devServer: {
         contentBase: [ './' ],
         watchContentBase: true
@@ -42,27 +37,28 @@ module.exports = {
         rules: [
             {
                 test: /\.scss$/,
-                use: sassPlugin.extract({
-                    use: [{
-                        loader: "css-loader"
-                    }, {
-                        loader: "sass-loader"
-                    }],
-                    // use style-loader in development
-                    fallback: "style-loader"
-                })
+                use: [
+                    "style-loader", // creates style nodes from JS strings
+                    "css-loader", // translates CSS into CommonJS
+                    "sass-loader" // compiles Sass to CSS
+                ]
             },
             {
-                test: /\.ts$/,
-                use: 'ts-loader'
+                test: /\.(png|svg|jpg|jpeg|gif)$/,
+                use: 'file-loader'
             },
             {
-                test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[path][name].[ext]'
-                }
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: 'file-loader'
+            },
+            {
+                test: /\.(html)$/,
+                use: 'html-loader'
+            },
+            {
+              test: /\.ts$/,
+              use: 'ts-loader'
             }
-        ]
+      ]
     }
 };

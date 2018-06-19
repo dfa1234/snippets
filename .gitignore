@@ -1,16 +1,13 @@
 .idea/
 node_modules/
 .DS_Store
-npm-debug.log
 
-
-*.pdf
-source.md
-source1.md
-output.html
-*.pdf
 
 *.log
+*.pdf
+source.md
+index.html
+
 
 output/
 dist/

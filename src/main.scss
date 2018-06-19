@@ -1,6 +1,6 @@
-$highlightColor : #94c02f;
-$normalColor: #d0d0d0;
-
+$highlightColor : #064184;
+$textColor: #24292e;
+$lightColor:rgb(187, 187, 187);
 
 @font-face {
   font-family: 'Montserrat';
@@ -11,49 +11,49 @@ $normalColor: #d0d0d0;
 }
 
 
-body{
+
+body {
   font-family: sans-serif;
   margin: 10%;
-  //background: #e7e7e7;
+  color:$textColor;
   max-width: 80%;
 }
 
 h1,h2,h3{
   font-family: Montserrat, sans-serif;
+  color: $highlightColor;
 }
 
 h1{
   text-align: center;
-  color: #c89d64;
 }
+
 h2{
   text-align: center;
-  color: #c89d64;
 }
 
 h3{
   margin-top: 50px;
-  color: #c89d64;
   margin-bottom: 5px;
 }
 
 h4{
   //font-style: italic;
-  color:rgb(187, 187, 187);
+  color:$lightColor;
   margin: 0;
 }
 
 a{
-  color: #aa8055;
+  color: $highlightColor;
   font-family: monospace;
   font-size: 1.2em;
-  & :visited{
-    color: #aa8055;
+  & :visited, &:hover{
+    color: darken($highlightColor, $amount: 30);
   }
 }
 
 #education ~ h4{
-    color:black;
+  color:$textColor;
   font-style: normal;
 }
 
@@ -67,7 +67,7 @@ pre{
   display: block;
   font-family: Montserrat, sans-serif;
   margin-top: -17px;
-  color: #c89d64;
+  color:#24292e;
 }
 
 

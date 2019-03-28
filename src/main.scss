@@ -3,9 +3,9 @@ html, body {
   font-family: sans-serif;
 }
 
-//q0: make zero on 3 column (without touching html)
+//make zero on 3 column (without touching html)
 
-//q1: center in 3 or 4 way (without touching html)
+//center in 3 or 4 way (without touching html)
 
 .wrap-blue {
   background: lightblue;
@@ -13,21 +13,26 @@ html, body {
 }
 
 .text0 {
-
+  background: red;
+  width:600px;
+  display: block;
 }
 
-//q2: selectors text1 in 2 way (remove .text1 class)
+//selectors text1 in 2 way (remove .text1 class)
 
-.text1 {
-  display: none;
+.text1  {
+  display: block;
+  width:600px;
+  background: yellow;
+
 }
 
 .text2 {
-  display: none;
+  display: block;
+  width:600px;
 }
 
-
-//q3: make a full page + menu + header
+//make a full page + menu + header
 
 
 .my-page {

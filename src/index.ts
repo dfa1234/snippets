@@ -1,5 +1,12 @@
 import './main.scss';
 
+
+
+
+
+
+
+
 var price = 1000;
 
 (function () {
@@ -27,6 +34,16 @@ var price = 1000;
     }
 
 }());
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -74,6 +91,9 @@ var price = 1000;
 
 
 
+
+
+
 (function () {
 
     const a = {b:'test'};
@@ -83,6 +103,18 @@ var price = 1000;
 
 
 }());
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

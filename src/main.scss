@@ -1,40 +1,47 @@
-$highlightColor : #94c02f;
-$normalColor: #d0d0d0;
+html, body {
+  background: lightgray;
+  font-family: sans-serif;
+}
 
-@font-face {
-  font-family: "Chicago";
-  src: url('assets/chicago.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+//q0: make zero on 3 column (without touching html)
+
+//q1: center in 3 or 4 way (without touching html)
+
+.wrap-blue {
+  background: lightblue;
+  //display: none;
+}
+
+.text0 {
+
+}
+
+//q2: selectors text1 in 2 way (remove .text1 class)
+
+.text1 {
+  display: none;
+}
+
+.text2 {
+  display: none;
 }
 
 
-body{
+//q3: make a full page + menu + header
 
-  background: #2b2b2b;
-  color: #bababa;
 
-  #title{
-    font-family: Chicago,sans-serif;
-    text-align: center;
-    line-height: 100px;
-    font-size: 2em;
-  }
+.my-page {
+  display: none;
+}
 
-  #terminal{
-    font-family: monospace;
-    text-align: left;
-    font-size: 1.1em;
-    width: 70%;
-    margin: auto;
-    padding: 10px 50px;
-    border: 1px dashed gray;
-  }
+main {
 
-  .logo{
-    vertical-align: middle;
-    width: 100px;
-    height: 100px;
-  }
+}
+
+aside {
+
+}
+
+footer {
 
 }
